@@ -20,8 +20,6 @@ A complexidade temporal do programa é \( O(n^2) \), onde \( n \) representa o n
 
 A complexidade espacial do programa é \( O(n^2) \), refletindo que a quantidade de memória necessária para processar a imagem cresce quadrativamente com o número de pixels.
 
-Essas métricas de complexidade oferecem insights valiosos sobre o desempenho do programa à medida que o tamanho da imagem aumenta.
-
 ---
 
 ### Instruções de Execução
