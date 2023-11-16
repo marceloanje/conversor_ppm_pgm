@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------
-// Arquivo	    : main.c
-// Conteudo	    : programa de avaliacao do TAD IMG
+// Arquivo	  : main.c
+// Conteudo	  : programa de avaliacao do TAD IMG
 // Autor	    : Marcelo Andrade
 // Historico	: 2022-09-10
 //---------------------------------------------------------------------

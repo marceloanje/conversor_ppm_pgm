@@ -1,40 +1,27 @@
 #---------------------------------------------------------------------
-# Arquivo	    : main.c
-# Conteudo	    : programa de avaliacao do TAD IMG
+# Arquivo	: Makefile
 # Autor	    : Marcelo Andrade
 # Historico	: 2022-09-10
 #---------------------------------------------------------------------
-# Opções	: make all - compila tudo
-#               : make mem - gera arquivos de registro de acesso
-#               : make prof - faz medidas de tempo de desempenho
-#               : make gprof - ilustra uso do gprof para depuração
+# Opções	: make - compila tudo
 #			: make clean - remove objetos e executável
 #---------------------------------------------------------------------
 
 CC = gcc
-LIBS = -lm
-SRC = src
-OBJ = obj
-INC = include
-BIN = bin
-OBJS = $(OBJ)/main.o $(OBJ)/img.o
-HDRS = $(INC)/img.h
-CFLAGS = -pg -Wall -c -I$(INC)
+CFLAGS = -Wall -Wextra -std=c99
 
-EXE = $(BIN)/main
+SRCS = main.c img.c
+OBJS = $(SRCS:.c=.o)
+HEADERS = img.h msgassert.h
 
-all:  mem
+programa: $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o programa
 
-mem: $(EXE)
-	
-$(BIN)/main: $(OBJS)
-	$(CC) -pg -o $(BIN)/main $(OBJS) $(LIBS)
+main.o: main.c $(HEADERS)
+	$(CC) $(CFLAGS) -c main.c -o main.o
 
-$(OBJ)/main.o: $(HDRS) $(SRC)/main.c
-	$(CC) $(CFLAGS) -o $(OBJ)/main.o $(SRC)/main.c 
-
-$(OBJ)/img.o: $(HDRS) $(SRC)/img.c
-	$(CC) $(CFLAGS) -o $(OBJ)/img.o $(SRC)/img.c
+img.o: img.c img.h
+	$(CC) $(CFLAGS) -c img.c -o img.o
 
 clean:
-	rm -f $(EXE) $(OBJS) gmon.out
+	rm -f $(OBJS) programa
